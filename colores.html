@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Colores 3 (Formulario). Controles en formularios (1). 
+    Ejercicios. Programación web en PHP. Bartolomé Sintes Marco</title>
+  <link href="mi.css" rel="stylesheet" type="text/css" title="Color" />
+</head>
+
+<body>
+<h1>Colores 3 (Formulario)</h1>
+
+<form action="colores.php" method="get">
+  <p>Elija los colores a cambiar:<br /> 
+    Color de fondo de la página: <input type="color" name="fondo" value="#f6f6ff" /><br />
+    Color de la letra de la página: <input type="color" name="letra" value="#000000" />
+  </p>
+
+  <p><input type="submit" value="Enviar" /> 
+    <input type="reset" value="Borrar" name="Reset" /></p>
+</form>
+
+<script>
+<?php
+    function contador()
+    {
+        $archivo = "contador.txt"; 
+        $f = fopen($archivo, "r"); 
+        if($f)
+        {
+            $contador = fread($f, filesize($archivo)); 
+            $contador = $contador + 1; 
+            fclose($f);
+        }
+        $f = fopen($archivo, "w+");
+        if($f)
+        {
+            fwrite($f, $contador);
+            fclose($f);
+        }
+        return $contador;
+    }
+?>
+
+</script>
+
+</body>
+</html>
